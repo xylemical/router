@@ -16,8 +16,9 @@ composer require xylemical/router
 
 use Xylemical\Container\RouterBuilder;
 
+$container = ...; // A source defined by Psr\Container\ContainerInterface.
 $source = ...; // A source defined by \Xylemical\Router\Source\SourceInterface.
-$builder = new RouterBuilder($source, 'config/router.php');
+$builder = new RouterBuilder($container, $source, 'config/router.php');
 $router = $builder->getRouter();
 
 $route = $router->match($request);
